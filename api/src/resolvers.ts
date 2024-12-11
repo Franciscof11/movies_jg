@@ -8,13 +8,12 @@ export const resolvers = {
                 const movie = record.get("m");
                 const properties = movie.properties;
 
-                // Convertemos os valores necessários para o tipo correto
                 return {
                     identity: movie.identity.toInt(),
                     labels: movie.labels,
                     properties: {
                         ...properties,
-                        released: parseInt(properties.released), // Convertendo para inteiro
+                        released: parseInt(properties.released),
                     },
                     elementId: movie.elementId,
                 };
@@ -34,7 +33,7 @@ export const resolvers = {
                     labels: movie.labels,
                     properties: {
                         ...properties,
-                        released: parseInt(properties.released), // Convertendo para inteiro
+                        released: parseInt(properties.released),
                     },
                     elementId: movie.elementId,
                 };

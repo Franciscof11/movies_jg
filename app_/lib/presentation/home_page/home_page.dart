@@ -22,8 +22,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.tealAccent,
       appBar: AppBar(
-        title: const Text('Movies'),
+        title: const Text('MoviesJG'),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Image.asset('assets/logo.png'),
+        ),
       ),
       body: Query(
         options: QueryOptions(
@@ -41,17 +46,34 @@ class HomePage extends StatelessWidget {
             );
           }
 
-          // Parse dos dados
           final List movies = result.data?['getMovies'] ?? [];
 
           return ListView.builder(
             itemCount: movies.length,
             itemBuilder: (context, index) {
               final movie = movies[index];
-              return ListTile(
-                title: Text(movie['properties']['title']),
-                subtitle: Text(movie['properties']['tagline'] ?? ''),
-                trailing: Text(movie['properties']['released'].toString()),
+              final String movieName = movie['properties']['title'];
+              final String movieSubtitle = movie['properties']['tagline'] ?? '';
+              final String launchDate =
+                  movie['properties']['released'].toString();
+              return Padding(
+                padding: const EdgeInsets.all(12),
+                child: Card(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 25),
+                        Text("Nome do filme: $movieName"),
+                        const SizedBox(height: 25),
+                        Text("Subtítulo: $movieSubtitle"),
+                        const SizedBox(height: 25),
+                        Text("Data de lançamento: $launchDate"),
+                        const SizedBox(height: 25),
+                      ],
+                    ),
+                  ),
+                ),
               );
             },
           );

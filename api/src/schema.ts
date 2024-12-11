@@ -32,11 +32,4 @@ export const typeDefs = gql`
     getPersons: [Person!]!
     getPersonById(identity: ID!): Person
   }
-
-  type Mutation {
-    createMovie(title: String!, tagline: String, released: Int!): Movie!
-    createPerson(name: String!, born: Int): Person!
-    addActorToMovie(personId: ID!, movieId: ID!): Movie!
-    addDirectorToMovie(personId: ID!, movieId: ID!): Movie!
-  }
 `;
