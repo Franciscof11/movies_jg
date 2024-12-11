@@ -29,7 +29,7 @@ Este projeto consiste na criação de uma API GraphQL utilizando **Node.js**, **
    - **Username** (geralmente `neo4j`)
    - **Password**.
 
-#### Usando o **Neo4j Desktop** (opção local)
+#### Usando o **Neo4j Desktop** (opção local) ou basta utilizar a versão web
 1. Baixe e instale o Neo4j Desktop em [neo4j.com/download](https://neo4j.com/download/).
 2. Crie um banco de dados local.
 3. Anote a URL Bolt, o nome de usuário e a senha.
@@ -53,17 +53,7 @@ Instale as dependências do projeto:
 npm install
 ```
 
-#### **2.3. Configurar Variáveis de Ambiente**
-Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
-
-```env
-NEO4J_URI=bolt://localhost:7687        # Ou a URL Bolt do Neo4j Sandbox
-NEO4J_USER=neo4j                      # Nome de usuário do Neo4j
-NEO4J_PASSWORD=your_password          # Senha do banco de dados
-PORT=4000                             # Porta onde a API será executada
-```
-
-#### **2.4. Estrutura do Projeto**
+#### **2.3. Estrutura do Projeto**
 A estrutura do projeto é organizada da seguinte forma:
 
 ```
@@ -132,41 +122,6 @@ query {
 }
 ```
 
-### **3. Criar um novo filme**
-```graphql
-mutation {
-  createMovie(title: "Inception", tagline: "Your mind is the scene of the crime", released: 2010) {
-    identity
-    properties {
-      title
-      tagline
-      released
-    }
-  }
-}
-```
-
-### **4. Atualizar o título de um filme**
-```graphql
-mutation {
-  updateMovie(identity: "0", title: "The Matrix Reloaded") {
-    identity
-    properties {
-      title
-    }
-  }
-}
-```
-
-### **5. Deletar um filme**
-```graphql
-mutation {
-  deleteMovie(identity: "0") {
-    success
-  }
-}
-```
-
 ---
 
 ## **Como Funciona o Backend**
@@ -193,4 +148,3 @@ O schema é definido no arquivo `schema.ts` e contém os seguintes tipos e opera
 
 Este projeto é uma introdução prática à integração de GraphQL com Neo4j em um backend Node.js. Ele pode ser expandido para incluir funcionalidades mais avançadas, como autenticação, relacionamentos complexos no banco de grafos, e otimizações de performance.
 
-Caso precise de ajuda ou queira estender o projeto, sinta-se à vontade para entrar em contato! 🚀
