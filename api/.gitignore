@@ -1,0 +1,32 @@
+# Dependências do Node.js
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de ambiente
+.env
+.env.* 
+
+# Diretórios de build/produção
+dist/
+build/
+
+# Cache
+.cache/
+.nyc_output/
+
+# Configurações do sistema operacional ou do editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Testes
+coverage/
+.jest/
