@@ -1,0 +1,1 @@
+ /Users/chicof11/Repositorios/JG/movies_jg/app_/.dart_tool/flutter_build/3f2ae94846483085906440c7f579405e/native_assets.yaml: 
